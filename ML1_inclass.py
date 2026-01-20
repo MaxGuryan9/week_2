@@ -1,3 +1,16 @@
+# ---
+# jupyter:
+#   jupytext:
+#     cell_metadata_filter: -all
+#     custom_cell_magics: kql
+#     text_representation:
+#       extension: .py
+#       format_name: percent
+#       format_version: '1.3'
+#       jupytext_version: 1.11.2
+# ---
+
+# %%
 """
 ML1 In-Class
 .py file
@@ -6,7 +19,7 @@ ML1 In-Class
 # [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]
 # (https://colab.research.google.com/github.com/UVADS/DS-3021/blob/main/
 # 04_ML_Concepts_I_Foundations/ML1_inclass.py#scrollTo=9723a7ee)
-
+#
 # [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]
 # (https://colab.research.google.com/github.com/UVADS/DS-3001/blob/main/
 # 04_ML_Concepts_I_Foundations/ML1_inclass.ipynb#scrollTo=9723a7ee)
@@ -14,7 +27,7 @@ ML1 In-Class
 
 # %%
 # import packages
-from turtle import color
+# from turtle import color
 from pydataset import data
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -26,11 +39,14 @@ pio.templates.default = "plotly_dark" # set dark theme
 
 # %%
 iris = data('iris')
-iris.head()
+iris
 
 # %%
 # What mental models can we see from these data sets?
+# We can see that there are 3 different species and maybe we can look at the different
+# characteristics and how they relate to the different species.
 # What data science questions can we ask?
+# Can we predict the species of the flower based on the characteristics of the flower?
 
 # %%
 """
@@ -67,6 +83,12 @@ Patterns in data
 """
 # Look at the following tables: do you see any patterns? How could a
 # classification model point these out?
+# It can look at the different trends and spreads of data in different categories
+# and use those to classify the new data points.
+# For example there is a clear difference in Sepal Length between virginica and the other two
+# species which means that could be an indicator of the virginica species.
+# Also petal lenght has a clear difference between the three species.
+# This could be another indicator of what species the flower is.
 patterns = iris.groupby(['Species'])
 patterns['Sepal.Length'].describe()
 
